@@ -39,6 +39,8 @@ Hbdmailer::Application.configure do
 
   config.action_mailer.perform_deliveries = true
 
+  config.assets.initialize_on_precompile = false
+
   config.action_mailer.smtp_settings = {
                       :tls            => true,
                       :address        => "smtp.gmail.com",
