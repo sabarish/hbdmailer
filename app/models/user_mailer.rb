@@ -14,8 +14,8 @@ class UserMailer < ActionMailer::Base
     @reply_to = "To <#{PGTracker::FROM_EMAIL}>"
     @subject = "Happy Birthday"
     @sent_on = Time.now
-    @body[:user] = to_email
-    @body[:bdays] = bdays
+    @user = to_email
+    @bdays = bdays
   end
 
   protected
