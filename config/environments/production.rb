@@ -72,15 +72,12 @@ Hbdmailer::Application.configure do
 
   config.assets.initialize_on_precompile = false
 
-  config.action_mailer.smtp_settings = {
-                      :tls            => true,
-                      :address        => "smtp.gmail.com",
-                      :port           => 587,
-                      :domain         => "gmail.com",
-                      :authentication => 'login',
-                      :enable_starttls_auto => true,
-                      :user_name      => "trojans41.mailer@gmail.com",
-                      :password       => "trojans41"
+  ActionMailer::Base.smtp_settings = {
+    :port           => ENV['MAILGUN_SMTP_PORT'],
+    :address        => ENV['MAILGUN_SMTP_SERVER'],
+    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
+    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
+    :domain         => 'hbdmailerapp.heroku.com',
+    :authentication => :plain,
   }
-
 end
